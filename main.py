@@ -1,9 +1,25 @@
 while True:
     # Get the total bill amount from the user
-    total_bill = float(input("Enter the total bill amount: $"))
+    while True:
+        try:
+            total_bill = float(input("Enter the total bill amount: $"))
+            if total_bill <= 0:
+                print("Error: Bill amount must be greater than zero.")
+            else:
+                break
+        except ValueError:
+            print("Error: Invalid input. Please enter a valid number.")
 
     # Get the tip percentage from the user
-    tip_percent = float(input("Enter the tip percentage (%): "))
+    while True:
+        try:
+            tip_percent = float(input("Enter the tip percentage (%): "))
+            if tip_percent < 0:
+                print("Error: Tip percentage cannot be negative.")
+            else:
+                break
+        except ValueError:
+            print("Error: Invalid input. Please enter a valid number.")
 
     # Calculate the tip amount
     tip_amount = total_bill * (tip_percent / 100)
